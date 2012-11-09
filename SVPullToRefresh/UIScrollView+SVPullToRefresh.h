@@ -13,9 +13,16 @@
 
 @class SVPullToRefreshView;
 
+enum {
+    SVPullToRefreshLocationTop,
+    SVPullToRefreshLocationBottom
+};
+typedef NSUInteger SVPullToRefreshLocation;
+
 @interface UIScrollView (SVPullToRefresh)
 
 - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler;
+- (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler location:(SVPullToRefreshLocation)location;
 - (void)triggerPullToRefresh;
 
 @property (nonatomic, strong, readonly) SVPullToRefreshView *pullToRefreshView;
